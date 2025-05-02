@@ -1,0 +1,51 @@
+{
+  "name": "event-schedule",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Event Schedule",
+  "keywords": [
+    "event",
+    "schedule",
+    "agenda",
+    "calendar",
+    "photo"
+  ],
+  "author": {
+    "name": "Andy Moesch",
+    "email": "andy.moesch@dectris.com",
+    "url": "https://www.dectris.com/"
+  },
+  "homepage": "https://www.dectris.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wrych/EventSchedule.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wrych/EventSchedule"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "pack": "npm run build && cd backend && npm pack && cd -",
+    "clean": "npm run clean --prefix frontend && npm run clean --prefix backend"
+  },
+  "license": "Unlicense",
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@rushstack/eslint-patch": "^1.8.0",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-vue": "^9.23.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.3.0"
+  },
+  "dependencies": {}
+}

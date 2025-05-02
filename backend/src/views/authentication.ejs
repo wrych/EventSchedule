@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+	<link rel="stylesheet" href="css/brands.min.css">
+	<link rel="stylesheet" href="css/solid.min.css">
+	<link rel="icon" href="favicon.svg">
+	<base href="/_auth/" />
+	<title>Authentication</title>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>Authentication</h1>
+		</header>
+		<main>
+			<% if (user) { %>
+			<div class="fullwidth"> You are logged in as <%= user.email %>.
+			</div>
+			<div class="fullwidth">
+				<form action="/_auth/logout/" method="post">
+					<button type="submit">Log Out</button>
+				</form>
+			</div>
+			<% } else { %>
+			<% if (hasMessages) { %>
+			<% messages.forEach(function(message) { %>
+			<div class="fullwidth message">
+				<span><%= message %></span>
+			</div <% }); %> <% } %> <a href="/_auth/google/">
+			<div class="fullwidth hoverable">
+				<i class="fa-brands fa-google"></i>
+				Log In Using Google
+			</div>
+			</a>
+			<% } %>
+	</div>
+</body>
+
+</html>

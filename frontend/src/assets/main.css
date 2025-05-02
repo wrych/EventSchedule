@@ -1,0 +1,7 @@
+@import "./base.css";
+
+a,
+.highlight {
+  text-decoration: none;
+  color: var(--color-highlight);
+}
