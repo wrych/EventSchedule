@@ -1,0 +1,52 @@
+# Running the Backend
+
+## Configuration / Environmental Variables
+
+Running the backend requires some environmental variables to be defined.
+
+The repo contains a template file for local development: [.env.development.template](./.env.development.template)
+
+### Required Environmental Variables
+
+#### App Configuration
+
+The `SESSION_SECRET` is used to sign the session ID cookie.  
+It should be a long, random string to ensure security.  
+You can generate a random string using the following command:  
+`openssl rand -hex 32`
+
+`SESSION_SECRET=<Some Secret Key>`
+
+#### Google OAuth Configuration
+
+The `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` are used for Google OAuth authentication.  
+You can create a new OAuth 2.0 client ID in the Google Cloud Console.  
+Make sure to set the redirect URI to match your application's URL.  
+For more information, visit:  
+https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred
+
+```
+GOOGLE_CLIENT_ID=<Some Client ID>
+GOOGLE_CLIENT_SECRET=<Some Client Secret>
+```
+
+### Optional Environmental Variables
+
+#### DB Configuration
+
+Leaving the DB_DIALECT commented will default to SQLite.  
+You can uncomment and set the following variables to configure a different database.  
+The DB_DIALECT can be set to "mysql" or "sqlite".  
+If using MySQL, make sure to set the DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, and DB_NAME.  
+If using SQLite, (optionally) set the DB_FILE to the path of the SQLite database file.  
+The DB_FILE defaults to `./var/db/db.sqlite` if not set.
+
+```
+DB_DIALECT="<mysql|sqlite>"
+DB_FILE="<Path to SQLite File>"
+DB_HOST="<Some Host>"
+DB_PORT="<Some Port>"
+DB_USER="<Some User>"
+DB_PASSWORD="<Some Password>"
+DB_NAME="<Some Database Name>"
+```
