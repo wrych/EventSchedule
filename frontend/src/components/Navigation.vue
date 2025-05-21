@@ -2,6 +2,7 @@
   <nav>
     <span>Introduction</span>
     <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/events">Events</RouterLink>
   </nav>
 </template>
 
