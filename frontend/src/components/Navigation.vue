@@ -1,8 +1,9 @@
 <template>
   <nav>
-    <span>Introduction</span>
     <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/events">Events</RouterLink>
+    <div v-if="user">
+      <RouterLink to="/events">Events</RouterLink>
+    </div>
   </nav>
 </template>
 
@@ -11,5 +12,4 @@ import { useAuthService } from "@/services/auth";
 
 const authService = useAuthService();
 const user = authService.getUser();
-const role = authService.getRoles();
 </script>

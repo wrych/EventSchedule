@@ -1,6 +1,7 @@
 import express from "express";
 import { ensureAuthenticated } from "./auth.js";
 import * as eventService from "../../services/event.js";
+import User from "src/models/User.js";
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.get("/", ensureAuthenticated, async (_req, res) => {
 
 router.post("/", ensureAuthenticated, async (req, res) => {
   const { eventName, startDatetime, endDatetime, description } = req.body;
-  const ownerId = req.user!.id;
+  const ownerId = (req.user as User).id;
   const event = await eventService.createEvent(
     ownerId,
     eventName,

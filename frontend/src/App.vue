@@ -2,9 +2,9 @@
   <div class="wrapper">
     <header>
       <InfoBar />
+      <Navigation />
     </header>
     <div class="content">
-      <!-- <Navigation /> -->
       <RouterView />
     </div>
   </div>

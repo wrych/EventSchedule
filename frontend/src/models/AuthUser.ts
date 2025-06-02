@@ -8,7 +8,7 @@ export class AuthUser {
     id: number,
     email: string,
     familyName: string,
-    givenName: string
+    givenName: string,
   ) {
     this.id = id;
     this.email = email;
