@@ -7,7 +7,8 @@
     "build": "tsc",
     "dev": "dotenv -e .env.development -- npx tsx src/www.ts",
     "clean": "rm -rf dist",
-    "lint": "eslint . --ext .ts,.js --ignore-path .gitignore"
+    "lint": "eslint . --ext .ts,.js --ignore-path .gitignore",
+    "test": "tsx --test --test-concurrency=1 tests/*.test.ts"
   },
   "files": [
     "dist",
