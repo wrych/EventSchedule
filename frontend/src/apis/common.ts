@@ -8,7 +8,7 @@ export class BadResponseFormatError extends Error {
 
 const checkContentType = (
   res: AxiosResponse,
-  expected: string = "application/json"
+  expected: string = "application/json",
 ): void => {
   if (!res.headers["content-type"].startsWith(expected)) {
     throw new BadResponseFormatError(res.headers["content-type"], expected);
@@ -23,7 +23,7 @@ const getJson = async <T>(resource: string): Promise<T> => {
 
 const postJson = async <T>(
   resource: string,
-  payload: {} | null = null
+  payload: {} | null = null,
 ): Promise<T> => {
   const res = await axios.post<T>(resource, payload);
   checkContentType(res);
@@ -33,7 +33,7 @@ const postJson = async <T>(
 const postForm = async <T>(
   resource: string,
   formData: FormData,
-  onUploadProgress: (progressEvent: AxiosProgressEvent) => void
+  onUploadProgress: (progressEvent: AxiosProgressEvent) => void,
 ): Promise<T> => {
   const res = await axios.post(resource, formData, {
     headers: {
