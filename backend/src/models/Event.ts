@@ -1,6 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import ORM from "../data/ORM.js";
 import User from "./User.js";
+import { RichTextSnapshot } from "./RichText.js";
 
 interface EventAttributes {
     id?: number;
@@ -61,5 +62,7 @@ Event.init(
 
 Event.belongsTo(User, { foreignKey: "ownerId" });
 User.hasMany(Event, { foreignKey: "ownerId" });
+Event.belongsTo(RichTextSnapshot, { foreignKey: "descriptionId", as: "description" });
+RichTextSnapshot.hasMany(Event, { foreignKey: "descriptionId", as: "events" });
 
 export default Event;

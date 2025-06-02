@@ -13,9 +13,16 @@ export class EventsService {
     eventName: string;
     startDatetime: string;
     endDatetime: string;
-    description?: object;
+    description?: { html: string };
   }): Promise<void> => {
     await this.repository.createEvent(payload);
+  };
+
+  updateDescription = async (
+    id: number,
+    description: { html: string },
+  ): Promise<void> => {
+    await this.repository.updateDescription(id, description);
   };
 }
 

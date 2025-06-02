@@ -60,7 +60,7 @@ interface RichTextStepAttributes {
     id?: number;
     snapshotId: number;
     stepIndex: number;
-    stepJson: string;
+    stepJson: object;
     createdBy: number;
 }
 
@@ -68,7 +68,7 @@ class RichTextStep extends Model<RichTextStepAttributes> implements RichTextStep
     declare id?: number;
     declare snapshotId: number;
     declare stepIndex: number;
-    declare stepJson: string;
+    declare stepJson: object;
     declare createdBy: number;
 }
 

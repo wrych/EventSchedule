@@ -6,4 +6,6 @@ export interface Event {
   descriptionId: number;
   startDatetime: string;
   endDatetime: string;
+  description?: { html: string };
+  version?: number;
 }
