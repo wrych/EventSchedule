@@ -103,6 +103,11 @@ RichTextStep.init(
     }
 );
 
+RichTextSnapshot.hasMany(RichTextStep, { foreignKey: "snapshotId" });
+RichTextStep.belongsTo(RichTextSnapshot, { foreignKey: "snapshotId" });
+
+export { RichTextSnapshot, RichTextStep };
+
 
 
 
