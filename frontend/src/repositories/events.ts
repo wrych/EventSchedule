@@ -22,13 +22,26 @@ class EventsRepository {
     eventName: string;
     startDatetime: string;
     endDatetime: string;
-    description?: object;
+    description?: { html: string };
   }): Promise<void> => {
     const event = await eventsApi.createEvent(payload);
     if (this.store.events) {
       this.store.events.push(event);
     } else {
       this.store.events = [event];
+    }
+  };
+
+  updateDescription = async (
+    id: number,
+    description: { html: string },
+  ): Promise<void> => {
+    await eventsApi.updateDescription(id, description);
+    if (this.store.events) {
+      const ev = this.store.events.find((e) => e.id === id);
+      if (ev) {
+        (ev as any).description = description;
+      }
     }
   };
 }

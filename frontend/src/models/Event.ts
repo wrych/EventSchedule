@@ -3,7 +3,9 @@ export interface Event {
   hash: string;
   ownerId: number;
   eventName: string;
-  descriptionId: number;
+  descriptionId?: number | null;
   startDatetime: string;
   endDatetime: string;
+  description?: { html: string };
+  version?: number;
 }
