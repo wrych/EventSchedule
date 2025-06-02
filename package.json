@@ -26,6 +26,7 @@
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
     "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "lint": "npm run lint --prefix backend && npm run lint --prefix frontend",
     "pack": "npm run build && cd backend && npm pack && cd -",
     "clean": "npm run clean --prefix frontend && npm run clean --prefix backend"
   },

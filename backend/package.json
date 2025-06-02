@@ -6,7 +6,8 @@
     "start": "dotenv -e .env.development -- node dist/www.js",
     "build": "tsc",
     "dev": "dotenv -e .env.development -- npx tsx src/www.ts",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "lint": "eslint . --ext .ts,.js --ignore-path .gitignore"
   },
   "files": [
     "dist",
@@ -53,6 +54,12 @@
     "debug": "^4.3.6",
     "dotenv-cli": "^7.4.2",
     "tsx": "^4.19.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@rushstack/eslint-patch": "^1.8.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5"
   }
 }

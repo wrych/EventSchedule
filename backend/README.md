@@ -1,5 +1,11 @@
 # Running the Backend
 
+## Linting
+
+Run `npm run lint` inside the `backend` directory to check and automatically
+fix code style issues. You can also lint the entire project from the repository
+root with `npm run lint`.
+
 ## Configuration / Environmental Variables
 
 Running the backend requires some environmental variables to be defined.

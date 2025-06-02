@@ -8,7 +8,8 @@ let ORM!: Sequelize
 switch (process.env.DB_DIALECT?.toLowerCase()) {
   default:
     console.warn('No database dialect set. Using SQLite.')
-  case 'sqlite':
+    // fall through
+  case 'sqlite': {
     const sqlitePath: string = process.env.DB_FILE
       ? path.resolve(process.env.DB_FILE)
       : path.join(rootPath, 'var', 'db', 'db.sqlite')
@@ -20,7 +21,8 @@ switch (process.env.DB_DIALECT?.toLowerCase()) {
       logging: false
     })
     break
-  case 'mysql':
+  }
+  case 'mysql': {
     const dbUser = process.env.DB_USER
     const dbPassword = process.env.DB_PW
     const dbName = process.env.DB_NAME
@@ -38,6 +40,7 @@ switch (process.env.DB_DIALECT?.toLowerCase()) {
       database: dbName
     })
     break
+  }
 }
 
 export default ORM

@@ -4,7 +4,7 @@ This repository does not currently include automated tests, but the code base us
 
 1. **Run linters, type checks, and builds**
 
-   - `npm run lint --prefix frontend`
+   - `npm run lint` (runs linting in both `backend` and `frontend`)
    - `npm run type-check --prefix frontend`
    - `npm run build`
 

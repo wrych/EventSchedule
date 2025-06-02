@@ -15,7 +15,7 @@ const syncDatabase = async () => {
   }
 };
 
-const runInitialSetup = async (env: string): Promise<void> => {
+const runInitialSetup = async (): Promise<void> => {
   if (!(await isMigrationComplete(MigrationStep.initial))) {
     console.log("running initial setup...");
 

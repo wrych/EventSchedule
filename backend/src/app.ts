@@ -52,7 +52,7 @@ app.use(
 );
 
 app.use(function (req: Request, res: Response, next: NextFunction) {
-  var msgs = req.session.messages || [];
+  const msgs = req.session.messages || [];
   res.locals.messages = msgs;
   res.locals.hasMessages = !!msgs.length;
   req.session.messages = [];
@@ -85,7 +85,7 @@ app.use((err: HttpError, req: Request, res: Response) => {
 const startServer = async () => {
   await syncDatabase();
   console.log(`running in environment '${app.get("env")}'...`);
-  await runInitialSetup(app.get("env"));
+  await runInitialSetup();
 };
 
 startServer();
