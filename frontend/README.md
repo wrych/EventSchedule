@@ -37,3 +37,4 @@ npm run build
 ```sh
 npm run lint
 ```
+You can also lint the entire project from the repository root with `npm run lint`.

@@ -10,12 +10,6 @@ import { Express, Request } from "express";
 import * as userService from "../services/user.js";
 import User from "../models/User.js";
 
-interface GoogleAuthConfig {
-  clientID: string;
-  clientSecret: string;
-  callbackURL: string;
-}
-
 const setupGoogleAuth = (app: Express) => {
   passport.use(
     new GoogleStrategy(

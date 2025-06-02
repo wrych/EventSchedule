@@ -7,7 +7,7 @@ import AssessmentSession from "../models/AssessmentSession";
 
 declare module "express" {
   interface Response {
-    locals: Record<string, any>;
+    locals: Record<string, unknown>;
   }
 }
 
