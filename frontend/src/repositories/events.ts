@@ -31,6 +31,23 @@ class EventsRepository {
       this.store.events = [event];
     }
   };
+
+  getEvent = async (
+    id: number,
+  ): Promise<{ event: Event; description: object }> => {
+    return eventsApi.getEvent(id);
+  };
+
+  updateDescription = async (id: number, doc: object): Promise<void> => {
+    await eventsApi.updateDescription(id, doc);
+    if (this.store.events) {
+      const idx = this.store.events.findIndex((e) => e.id === id);
+      if (idx >= 0) {
+        const updated = await eventsApi.getEvent(id);
+        this.store.events[idx] = updated.event;
+      }
+    }
+  };
 }
 
 let eventsRepository: EventsRepository | null = null;

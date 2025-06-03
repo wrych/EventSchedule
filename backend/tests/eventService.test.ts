@@ -68,3 +68,25 @@ test('getAllEvents sorts by start time', async () => {
   assert.equal(relevant.length, 2)
   assert.ok(relevant[0].startDatetime < relevant[1].startDatetime)
 })
+
+test('update description stores new snapshot', async () => {
+  const user = await userService.create('update@example.com')
+  const event = await eventService.createEvent(
+    user.id!,
+    'desc event',
+    new Date('2020-01-01T10:00:00Z'),
+    new Date('2020-01-01T11:00:00Z'),
+    { html: '<p>v1</p>' }
+  )
+
+  const snap2 = await eventService.updateDescription(
+    event.id!,
+    { html: '<p>v2</p>' },
+    user.id!
+  )
+
+  assert.ok(snap2)
+  const updatedEvent = await eventService.getEvent(event.id!)
+  assert.equal(snap2?.version, 2)
+  assert.deepEqual(updatedEvent?.description, { html: '<p>v2</p>' })
+})

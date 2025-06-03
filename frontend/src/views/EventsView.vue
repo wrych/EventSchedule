@@ -10,7 +10,9 @@
       </form>
       <ul>
         <li v-for="ev in events" :key="ev.id">
-          {{ ev.eventName }} ({{ ev.startDatetime }} - {{ ev.endDatetime }})
+          <RouterLink :to="`/events/${ev.id}`">
+            {{ ev.eventName }} ({{ ev.startDatetime }} - {{ ev.endDatetime }})
+          </RouterLink>
         </li>
       </ul>
     </div>
@@ -20,6 +22,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { RouterLink } from "vue-router";
 import { useEventsService } from "@/services/events";
 import { useAuthService } from "@/services/auth";
 

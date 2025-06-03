@@ -17,6 +17,16 @@ export class EventsService {
   }): Promise<void> => {
     await this.repository.createEvent(payload);
   };
+
+  getEvent = async (
+    id: number,
+  ): Promise<{ event: Event; description: object }> => {
+    return this.repository.getEvent(id);
+  };
+
+  updateDescription = async (id: number, doc: object): Promise<void> => {
+    await this.repository.updateDescription(id, doc);
+  };
 }
 
 export const useEventsService = (): EventsService => {
